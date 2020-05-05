@@ -1,4 +1,4 @@
-import React, { useState, setState , useEffect} from "react";
+import React, { useState, setState, useEffect } from "react";
 //import Section from "./comonent/Section";
 import "./App.css";
 import Avatar from "./img/avatar.jpg";
@@ -9,7 +9,7 @@ function App() {
   const [blog, setBlog] = useState([]);
   const [post, setPost] = useState({});
   const [edit, setEdit] = useState({});
-  const [time, setTime] = useState(10); 
+  const [time, setTime] = useState(10);
   const [effecttime, setEffectTime] = useState(10);
   const changeSubmit = (e) => {
     e.preventDefault();
@@ -26,15 +26,6 @@ function App() {
     ]);
   };
 
-useEffect(() => {
-  setTime(effecttime * 2)
-  
-  return () => {
-    console.log('Setting bro');
-  }
-}, [effecttime, console.log('effect time track', effecttime)])
-
-
   const onChangeHandaler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -44,8 +35,6 @@ useEffect(() => {
   };
 
   const deleteIdCards = (id) => {
-    console.log("this is id", id);
-
     const result = blog.filter((element) => element.id !== id);
     setBlog(result);
   };
@@ -58,9 +47,6 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <button onClick={()=>setEffectTime(effecttime + 1)}>click me to add 1</button>
-  <p>The time is {effecttime}</p>
-  <p>The original time is {time}</p>
       <div className="myInputs">
         Name:
         <input
